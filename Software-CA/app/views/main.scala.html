@@ -1,0 +1,83 @@
+@(pagename:String,user: models.users.User)(content:Html)
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+	    .footer { font-weight: bold; color: white; background-color: rgb(146, 0, 0); }
+	    .sidecol { font-weight: bold; background-color: rgba(231, 170, 255, 0.445); }
+	    .sidecol h2 { font-weight: bold; color: rgb(155, 0, 0)}
+	    .midcol h1 { text-align: center; font-weight: bold; color:peru}
+	    .midcol h3 { text-align: center; color: rgb(128, 0, 0); }
+	    .redtext { color: rgb(136, 0, 0); }
+	</style>
+	<title>Software-CA @pagename</title>
+    </head>
+    <body>
+
+		<img src="@routes.Assets.versioned("images/banner.png")" width="100%" height = "300">
+
+	<nav class="navbar navbar-inverse">
+	    <div class="container-fluid">
+		<div class="navbar-header">
+		    <a class="navbar-brand" href="#">Software-CA</a>
+		</div>
+		<ul class="nav navbar-nav">
+            <li @if(pagename == "Home") {class="active"}><a href="@routes.HomeController.index()">Home</a></li>
+		    <li @if(pagename == "On Sale") {class="active"}><a href="@routes.HomeController.onsale()">Football Boots</a></li>
+			<li @if(pagename == "Register") {class="active"}><a href="@routes.LoginController.registerUser()">Member Sign Up</a></li>
+			@if((user != null) && ("admin".equals(user.getRole()))) {
+				<li @if(pagename == "Administrators") {class="active"}><a href="@routes.HomeController.usersAdmin()">View Admin</a></li>
+				<li @if(pagename == "Customers") {class="active"}><a href="@routes.HomeController.usersCustomer()">View Customers</a></li>
+
+			}
+			
+			
+			<li @if(pagename == "Log In") {class="active"}>
+				@if(user != null) {
+					<a href="@routes.LoginController.logout()">Log Out</a>
+				} else {
+					<a href="@routes.LoginController.login()">Log In</a>
+			</li>
+} 
+		</ul>
+	    </div>
+	</nav>
+
+	<div class="container-fluid">
+	    <div class="row">
+		<div class="col-sm-2">
+		    <div class="well sidecol">
+			<h2>Football boot launch campaign</h2>
+			<h3>New brands coming into our shop</h3>
+			<p>	The new football boot campaign is lauching this summer which will see brands such as <span class="redtext">Nike & Adidas</span> bringing in new styles of football boots.<span class="redtext">Exciting for young & old football players.</span>.
+		    </div>
+		</div>
+		<div class="col-sm-8">
+		    <div class="midcol">
+			@content
+		    </div>
+		</div>
+		<div class="col-sm-2">
+		    <div class="well sidecol">
+			<h2>Standard Delivery</h2>
+				<p>Standard delivery is going to be $6.99 starting from the 1st of April.<br><br>
+				Delivery is <span class="redtext">FREE</span> on orders above $200.00.
+			</p>
+		    </div>
+		</div>
+	    </div>
+	    <div class="row">
+		<div class="col-sm-12">
+		    <div class="well footer">
+			Website created by Edgar & Mark.
+		    </div>
+		</div>
+	    </div>
+	</div>
+	<script src ="@routes.Assets.versioned("javascripts/main.js")"></script>
+    </body>
+</html>
+
