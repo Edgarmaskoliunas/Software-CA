@@ -30,7 +30,7 @@
 			<li @if(pagename == "Register") {class="active"}><a href="@routes.LoginController.registerUser()">Website Sign Up</a></li>
 			@if((user != null) && ("admin".equals(user.getRole()))) {
 				<li @if(pagename == "Administrators") {class="active"}><a href="@routes.HomeController.usersAdmin()">View Admin</a></li>
-				<li @if(pagename == "Customers") {class="active"}><a href="@routes.HomeController.usersCustomer()">View Customers</a></li>
+				<li @if(pagename == "Employees") {class="active"}><a href="@routes.HomeController.usersCustomer()">View Employees</a></li>
 
 			}
 			
@@ -51,8 +51,8 @@
 		<div class="col-sm-2">
 		    <div class="well sidecol">
 			<h2>PROJECTS DUE</h2>
-			<h3>NewS</h3>
-			<p>	The new football boot campaign is lauching this summer which will see brands such as <span class="redtext">Nike & Adidas</span> bringing in new styles of football boots.<span class="redtext">Exciting for young & old football players.</span>.
+			<h3>News</h3>
+			<p>	Projects must be handed in and completed before the <span class="redtext">3rd of March 2019</span>, please make sure to submit all completed work.</span>.
 		    </div>
 		</div>
 		<div class="col-sm-8">
@@ -60,13 +60,6 @@
 			@content
 		    </div>
 		</div>
-		<div class="col-sm-2">
-		    <div class="well sidecol">
-			<h2>Standard Delivery</h2>
-				<p>Standard delivery is going to be $6.99 starting from the 1st of April.<br><br>
-				Delivery is <span class="redtext">FREE</span> on orders above $200.00.
-			</p>
-		    </div>
 		</div>
 	    </div>
 	    <div class="row">
@@ -80,4 +73,5 @@
 	<script src ="@routes.Assets.versioned("javascripts/main.js")"></script>
     </body>
 </html>
+
 
