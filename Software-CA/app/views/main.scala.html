@@ -26,8 +26,8 @@
 		</div>
 		<ul class="nav navbar-nav">
             <li @if(pagename == "Home") {class="active"}><a href="@routes.HomeController.index()">Home</a></li>
-		    <li @if(pagename == "On Sale") {class="active"}><a href="@routes.HomeController.onsale()">Football Boots</a></li>
-			<li @if(pagename == "Register") {class="active"}><a href="@routes.LoginController.registerUser()">Member Sign Up</a></li>
+		    <li @if(pagename == "On Sale") {class="active"}><a href="@routes.HomeController.onsale()">Projects</a></li>
+			<li @if(pagename == "Register") {class="active"}><a href="@routes.LoginController.registerUser()">Website Sign Up</a></li>
 			@if((user != null) && ("admin".equals(user.getRole()))) {
 				<li @if(pagename == "Administrators") {class="active"}><a href="@routes.HomeController.usersAdmin()">View Admin</a></li>
 				<li @if(pagename == "Customers") {class="active"}><a href="@routes.HomeController.usersCustomer()">View Customers</a></li>
@@ -50,8 +50,8 @@
 	    <div class="row">
 		<div class="col-sm-2">
 		    <div class="well sidecol">
-			<h2>Football boot launch campaign</h2>
-			<h3>New brands coming into our shop</h3>
+			<h2>PROJECTS DUE</h2>
+			<h3>NewS</h3>
 			<p>	The new football boot campaign is lauching this summer which will see brands such as <span class="redtext">Nike & Adidas</span> bringing in new styles of football boots.<span class="redtext">Exciting for young & old football players.</span>.
 		    </div>
 		</div>
@@ -72,7 +72,7 @@
 	    <div class="row">
 		<div class="col-sm-12">
 		    <div class="well footer">
-			Website created by Edgar & Mark.
+			2019 Software-CA.
 		    </div>
 		</div>
 	    </div>
