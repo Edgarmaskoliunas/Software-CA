@@ -25,8 +25,6 @@ public class Customer extends User{
     private String town;
     @Constraints.Required
     private String postCode;
-    @Constraints.Required
-    private String creditCard;
     
 
     public Customer(){
@@ -34,14 +32,13 @@ public class Customer extends User{
     }
 	
     public Customer(String email, String role, String name, 
-    String password, Date dateOfBirth,String street1, String street2, String town, String postCode, String creditCard)
+    String password, Date dateOfBirth,String street1, String street2, String town, String postCode)
 	{
 		super(email, role, name, password,dateOfBirth);
         this.street1 = street1;
         this.street2 = street2;
         this.town = town;
         this.postCode = postCode;
-		this.creditCard = creditCard;
 	}
 
     public String getStreet1() {
@@ -76,13 +73,6 @@ public class Customer extends User{
         this.postCode = postCode;
     }
 
-    public String getCreditCard() {
-        return creditCard;
-    }
-
-    public void setCreditCard(String creditCard) {
-        this.creditCard = creditCard;
-    }
     public static final Finder<Long, Customer> find = new Finder<>(Customer.class);
 			    
     public static final List<Customer> findAll() {

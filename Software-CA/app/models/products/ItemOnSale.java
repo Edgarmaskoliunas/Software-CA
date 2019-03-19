@@ -19,12 +19,6 @@ public class ItemOnSale extends Model {
     @Constraints.Required
     private String description;
 
-    @Constraints.Required
-    private int stock;
-    
-    @Constraints.Required
-    private double price;
-
     @ManyToMany(cascade=CascadeType.ALL, mappedBy = "items")
     private List<Category> categories;
 
@@ -35,12 +29,10 @@ public class ItemOnSale extends Model {
     }
 
     // Constructor to initialise object
-    public ItemOnSale(Long id, String name, String description, int stock, double price) {
+    public ItemOnSale(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.stock = stock;
-        this.price = price;
     }
 
     public static final Finder<Long, ItemOnSale> find = new Finder<>(ItemOnSale.class);
@@ -68,18 +60,6 @@ public class ItemOnSale extends Model {
     public void setDescription(String description) {
         this.description = description;
     }
-    public int getStock() {
-        return stock;
-    }
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-    public double getPrice() {
-        return price;
-    }
-    public void setPrice(double price) {
-        this.price = price;
-}
 
 public List<Category> getCategories() {
     return categories;

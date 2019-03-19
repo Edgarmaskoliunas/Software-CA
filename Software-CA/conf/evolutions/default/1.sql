@@ -19,8 +19,6 @@ create table item_on_sale (
   id                            bigint auto_increment not null,
   name                          varchar(255),
   description                   varchar(255),
-  stock                         integer not null,
-  price                         double not null,
   constraint pk_item_on_sale primary key (id)
 );
 
@@ -35,7 +33,6 @@ create table user (
   street2                       varchar(255),
   town                          varchar(255),
   post_code                     varchar(255),
-  credit_card                   varchar(255),
   constraint pk_user primary key (email)
 );
 
